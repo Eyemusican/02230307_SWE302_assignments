@@ -145,10 +145,6 @@ coverage: 74.4% of statements
 17. `TestListComments` - GET `/api/articles/:slug/comments`
 18. `TestGetTags` - GET `/api/tags/`
 
-**Test Results:**
-
-![assets/image-1.png](assets/image-1.png)
-
 **All 18 integration tests PASS!**
 
 ---
