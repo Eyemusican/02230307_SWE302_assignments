@@ -84,7 +84,7 @@ snyk monitor
 
 **Screenshot 2: Snyk Backend Scan Results**
 
-![Snyk Backend Scan - 0 Vulnerabilities](screenshots/image-1.png)
+![Snyk Backend Scan - 0 Vulnerabilities](../screenshots/image-1.png)
 
 *Snyk backend scan results showing 66 dependencies tested with 0 vulnerabilities found after fixes were applied.*
 
@@ -207,7 +207,7 @@ snyk test
 
 **Screenshot 5: Snyk Test After Fixes**
 
-![Snyk Backend Verification - All Fixes Applied](screenshots/image-2.png)
+![Snyk Backend Verification - All Fixes Applied](../screenshots/image-2.png)
 
 *Terminal output confirming all backend vulnerabilities resolved: 66 dependencies tested, 0 issues remaining.*
 
@@ -245,7 +245,7 @@ snyk monitor
 
 **Screenshot 6: Snyk Frontend Scan Results**
 
-![Snyk Frontend Scan - 0 Vulnerabilities](screenshots/image-3.png)
+![Snyk Frontend Scan - 0 Vulnerabilities](../screenshots/image-3.png)
 
 *Snyk frontend scan showing 419 dependencies tested with 0 vulnerabilities after fixing marked package and dependencies.*
 
@@ -297,7 +297,7 @@ npm audit fix
 
 **Screenshot 7: marked Package Upgrade**
 
-![npm marked Package Update](screenshots/image-4.png)
+![npm marked Package Update](../screenshots/image-4.png)
 
 *Terminal showing successful upgrade of marked package from v0.3.19 to v4.0.10, resolving 5 ReDoS vulnerabilities.*
 
@@ -331,7 +331,7 @@ Snyk Code analyzed the React source code and found **3 MEDIUM severity issues** 
 
 **Screenshot 8: Snyk Code Test Results**
 
-![Snyk Code Analysis - Test Files Only](screenshots/image-5.png)
+![Snyk Code Analysis - Test Files Only](../screenshots/image-5.png)
 
 *Snyk Code analysis showing 3 MEDIUM issues in test files only (Cypress tests). Production code is clean.*
 
@@ -346,7 +346,7 @@ npm audit
 
 **Screenshot 9: Frontend Dependencies After Fixes**
 
-![npm Audit - 0 Vulnerabilities](screenshots/image-6.png)
+![npm Audit - 0 Vulnerabilities](../screenshots/image-6.png)
 
 *npm audit results showing 419 packages audited with 0 vulnerabilities after all fixes applied.*
 
@@ -364,7 +364,7 @@ npm audit
 
 **Screenshot 10: Snyk Dashboard Overview**
 
-![Snyk Cloud Dashboard - Both Projects Clean](screenshots/image-7.png)
+![Snyk Cloud Dashboard - Both Projects Clean](../screenshots/image-7.png)
 
 *Snyk dashboard showing both backend and frontend projects with 0 vulnerabilities, confirming all issues resolved.*
 
@@ -443,7 +443,7 @@ Successfully achieved **0 vulnerabilities** across both backend and frontend pro
 
 **Screenshot 11: SonarQube Cloud Setup**
 
-![SonarQube Project Dashboard](screenshots/image-8.png)
+![SonarQube Project Dashboard](../screenshots/image-8.png)
 
 *SonarQube Cloud dashboard showing project analysis with 7.3k lines of code across JavaScript, Go, and HTML.*
 
@@ -463,7 +463,7 @@ Successfully achieved **0 vulnerabilities** across both backend and frontend pro
 
 **Screenshot 12: SonarQube Project Overview**
 
-![SonarQube Overall Metrics](screenshots/image-8.png)
+![SonarQube Overall Metrics](../screenshots/image-8.png)
 
 *SonarQube project overview with Security: A rating, 0 vulnerabilities, 51 reliability issues, 84 maintainability issues.*
 
@@ -522,15 +522,15 @@ Security hotspots are security-sensitive pieces of code that require manual revi
 
 **Screenshot 13: Security Hotspots List**
 
-![SonarQube Security Hotspots - 12 To Review](screenshots/image-9.png)
+![SonarQube Security Hotspots - 12 To Review](../screenshots/image-9.png)
 
 *SonarQube Security Hotspots showing 12 items requiring manual review, primarily authentication-related password detections.*
 
-![Security Hotspots Details](screenshots/image-10.png)
+![Security Hotspots Details](../screenshots/image-10.png)
 
 *Detailed view of security hotspots with Review Priority (High) and Authentication category markers.*
 
-![Security Hotspots Continuation](screenshots/image-11.png)
+![Security Hotspots Continuation](../screenshots/image-11.png)
 
 *Additional security hotspots showing password detection warnings requiring review for potential hard-coded credentials.*
 
@@ -566,7 +566,7 @@ Security hotspots are security-sensitive pieces of code that require manual revi
 
 **Screenshot 14: Reliability Issues**
 
-![SonarQube Reliability Issues - 51 Total](screenshots/image-13.png)
+![SonarQube Reliability Issues - 51 Total](../screenshots/image-13.png)
 
 *SonarQube Reliability tab showing 51 issues (mostly error handling warnings) with 4h 12min estimated effort.*
 
@@ -615,7 +615,7 @@ Security hotspots are security-sensitive pieces of code that require manual revi
 
 **Screenshot 15: Code Smells List**
 
-![SonarQube Maintainability Issues - 84 Code Smells](screenshots/image-12.png)
+![SonarQube Maintainability Issues - 84 Code Smells](../screenshots/image-12.png)
 
 *SonarQube Maintainability tab showing 84 code smells (duplicated strings, commented code) with 7h 35min effort.*
 
@@ -652,7 +652,7 @@ Manual review takes significant time and security expertise. The assignment is f
 
 **Screenshot 17: Sample Security Hotspot Detail**
 
-![SonarQube Security Hotspot Detail View](screenshots/image-14.png)
+![SonarQube Security Hotspot Detail View](../screenshots/image-14.png)
 
 *Detailed view of a security hotspot showing hard-coded password detection in utils.go with review options and risk analysis tabs.*
 
@@ -662,7 +662,7 @@ Manual review takes significant time and security expertise. The assignment is f
 
 **Screenshot 18: Quality Gate Status**
 
-![SonarQube Quality Gate - Not Computed](screenshots/image-15.png)
+![SonarQube Quality Gate - Not Computed](../screenshots/image-15.png)
 
 *Quality Gate showing "Not computed" status - expected for first-time analysis without baseline for new code comparison.*
 
@@ -710,7 +710,7 @@ SonarQube Quality Gates only evaluate **New Code** (changes since a baseline). S
 
 **Screenshot 20: Complete Project Overview**
 
-![SonarQube Complete Dashboard Summary](screenshots/image-16.png)
+![SonarQube Complete Dashboard Summary](../screenshots/image-16.png)
 
 *Final SonarQube dashboard showing complete analysis: Security A rating, 0 vulnerabilities, 7.3k LOC analyzed.*
 
@@ -783,7 +783,7 @@ Unlike Snyk (which required fixing vulnerabilities), SonarQube analysis shows th
 
 **Screenshot 21: OWASP ZAP Installation**
 
-![OWASP ZAP 2.16.1 Welcome Screen](screenshots/image-17.png)
+![OWASP ZAP 2.16.1 Welcome Screen](../screenshots/image-17.png)
 
 *OWASP ZAP 2.16.1 installation confirmation and welcome screen.*
 
@@ -808,13 +808,13 @@ npm start
 **Screenshot 22: Applications Running**
 
 ***Backend: "Listening and serving HTTP on :8080"***
-![Backend Server Running on Port 8080](screenshots/image-18.png)
+![Backend Server Running on Port 8080](../screenshots/image-18.png)
 
 *Go backend server running successfully on localhost:8080 with JWT warnings visible.*
 
 ***Frontend: "webpack compiled successfully"***
 
-![React Frontend Compiled Successfully](screenshots/image-19.png)
+![React Frontend Compiled Successfully](../screenshots/image-19.png)
 
 *React frontend application compiled and running on localhost:4100 via webpack-dev-server.*
 
@@ -831,7 +831,7 @@ npm start
 
 **Screenshot 23: Test User Registration**
 
-![Test User 'securitytest' Profile Page](screenshots/image-20.png)
+![Test User 'securitytest' Profile Page](../screenshots/image-20.png)
 
 *Conduit app showing authenticated test user 'securitytest' profile, confirming successful registration for ZAP scanning.*
 ---
@@ -847,7 +847,7 @@ npm start
 
 **Screenshot 24: ZAP Context Setup**
 
-![ZAP Context Configuration Dialog](screenshots/image-21.png)
+![ZAP Context Configuration Dialog](../screenshots/image-21.png)
 
 *ZAP context setup showing included URLs: localhost:4100 (frontend) and localhost:8080 (backend API).*
 
@@ -861,7 +861,7 @@ npm start
 
 **Screenshot 25: Passive Scan Progress**
 
-![ZAP Passive Scan Running](screenshots/image-22.png)
+![ZAP Passive Scan Running](../screenshots/image-22.png)
 
 *ZAP passive scan in progress, automatically analyzing HTTP traffic to identify vulnerabilities.*
 
@@ -873,7 +873,7 @@ npm start
 
 **Screenshot 26: Passive Scan Alerts Summary**
 
-![ZAP Passive Scan Alerts Tree](screenshots/image-23.png)
+![ZAP Passive Scan Alerts Tree](../screenshots/image-23.png)
 
 *Passive scan alerts: 0 HIGH, 4 MEDIUM (CSP, headers), 2 LOW (info disclosure), 3 INFORMATIONAL.*
 
@@ -913,7 +913,7 @@ Content Security Policy (CSP) directives are incomplete or missing fallback defa
 
 **Screenshot 27: CSP Alert Detail**
 
-![ZAP Alert Detail - CSP Failure](screenshots/image-24.png)
+![ZAP Alert Detail - CSP Failure](../screenshots/image-24.png)
 
 *Detailed view of MEDIUM severity CSP alert showing missing directives and recommended solutions.*
 
@@ -1025,7 +1025,7 @@ X-Powered-By: gin
 
 **Screenshot 28: Active Scan Configuration**
 
-![ZAP Active Scan Setup Dialog](screenshots/image-25.png)
+![ZAP Active Scan Setup Dialog](../screenshots/image-25.png)
 
 *Active scan configuration targeting localhost:8080 backend with Default Context and Recurse enabled.*
 
@@ -1035,7 +1035,7 @@ X-Powered-By: gin
 
 **Screenshot 29: Active Scan Completion**
 
-![ZAP Active Scan Complete - 811 Requests](screenshots/image-26.png)
+![ZAP Active Scan Complete - 811 Requests](../screenshots/image-26.png)
 
 *Active scan completed: 811 test requests sent, 12 alerts found, 0 HIGH severity vulnerabilities.*
 
@@ -1061,7 +1061,7 @@ X-Powered-By: gin
 
 **Screenshot 30: Alerts Summary After Active Scan**
 
-![ZAP Alerts After Active Scan](screenshots/image-27.png)
+![ZAP Alerts After Active Scan](../screenshots/image-27.png)
 
 *Complete alerts summary showing all findings organized by severity: 0 HIGH, 4 MEDIUM, 2 LOW, 3 INFORMATIONAL.*
 
@@ -1094,7 +1094,7 @@ X-Powered-By: gin
 
 **Screenshot 31: API Endpoints in ZAP Sites Tree**
 
-![ZAP Sites Tree - API Endpoints](screenshots/image-28.png)
+![ZAP Sites Tree - API Endpoints](../screenshots/image-28.png)
 
 *ZAP Sites tree showing discovered API endpoints: /api/users, /api/articles, /api/tags, /api/profiles with sub-routes.*
 
@@ -1126,7 +1126,7 @@ X-Powered-By: gin
 
 **Screenshot 32: API Security Tests Summary**
 
-![ZAP History Tab - Test Requests](screenshots/image-29.png)
+![ZAP History Tab - Test Requests](../screenshots/image-29.png)
 
 *ZAP History tab showing 811 HTTP requests testing SQL injection, XSS, authentication, and authorization.*
 
@@ -1146,13 +1146,13 @@ X-Powered-By: gin
 
 **Screenshot 33: ZAP Report Generation**
 
-![ZAP Report Generation Dialog](screenshots/image-30.png)
+![ZAP Report Generation Dialog](../screenshots/image-30.png)
 
 *ZAP report generation dialog showing HTML format selection and output configuration.*
 
 **Screenshot 34: Generated HTML Report Preview**
 
-![ZAP HTML Report in Browser](screenshots/image-31.png)
+![ZAP HTML Report in Browser](../screenshots/image-31.png)
 
 *Generated ZAP HTML security report displaying executive summary, alert counts, and detailed findings.*
 
@@ -1474,29 +1474,7 @@ This comprehensive security assessment of the RealWorld Conduit application succ
 - JWT library migration required code changes
 - Balancing security with usability
 
-### Final Security Assessment
 
-**The RealWorld Conduit application is now PRODUCTION-READY from a security perspective**, with the following caveats:
-
-**Ready for Production:** 
-- Backend API security: Excellent
-- Dependency management: Excellent  
-- Code quality: Good
-- Authentication/Authorization: Secure
-
-**Required Before Production:** 
-- Deploy frontend with proper web server (nginx/Apache)
-- Enable HTTPS with valid certificates
-- Set environment variables for secrets
-- Implement rate limiting
-- Configure production CORS
-
-**Recommended for Production:** 
-- Set up WAF
-- Enable security monitoring
-- Implement comprehensive logging
-- Regular security scanning
-- Incident response plan
 
 
 

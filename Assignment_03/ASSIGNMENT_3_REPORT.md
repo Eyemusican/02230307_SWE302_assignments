@@ -1,9 +1,5 @@
 # Assignment 3: Performance Testing & End-to-End Testing Report
 
-**Student Name:** [Your Name]  
-**Student ID:** [Your ID]  
-**Date:** December 4, 2025
-
 ---
 
 ## Executive Summary
@@ -13,10 +9,10 @@ This report documents the comprehensive performance testing and end-to-end testi
 - **Part B:** Cypress E2E testing covering authentication, article management, comments, profiles, and complete user workflows
 
 ### Key Achievements
-- ✅ **Performance Testing:** All 5 k6 tests completed with 92.3% performance improvement
-- ✅ **E2E Testing:** 71 Cypress tests across 4 test files (authentication, articles, comments, profile, workflows)
-- ✅ **Database Optimization:** Implemented indexes reducing query times from 15.91ms to 1.23ms (P95)
-- ✅ **Test Coverage:** Complete user journeys from registration to article deletion
+- **Performance Testing:** All 5 k6 tests completed with 92.3% performance improvement
+- **E2E Testing:** 71 Cypress tests across 4 test files (authentication, articles, comments, profile, workflows)
+- **Database Optimization:** Implemented indexes reducing query times from 15.91ms to 1.23ms (P95)
+- **Test Coverage:** Complete user journeys from registration to article deletion
 
 ---
 
@@ -49,13 +45,13 @@ checks.......................: 100.00%
 ```
 
 **Analysis:**
-- ✅ P95 latency: 1ms (well below 500ms threshold)
-- ✅ Error rate: 0%
-- ✅ All checks passed
+- P95 latency: 1ms (well below 500ms threshold)
+- Error rate: 0%
+- All checks passed
 - **Baseline established:** System handles 10 concurrent users smoothly
 
 **Screenshot Required:** 
-![alt text](png/image.png)
+![alt text](../png/image.png)
  
 Terminal output showing load test results
 
@@ -78,13 +74,13 @@ checks.......................: 100.00%
 ```
 
 **Analysis:**
-- ✅ System handled 50 VUs without failures
-- ✅ P95 latency: 2.43ms (increased from baseline but still excellent)
-- ✅ No errors during stress test
+- System handled 50 VUs without failures
+- P95 latency: 2.43ms (increased from baseline but still excellent)
+- No errors during stress test
 - **Finding:** System can handle 50 concurrent users with minimal degradation
 
 **Screenshot Required:**
-![png/image-1.png](png/image-1.png)
+![png/image-1.png](../png/image-1.png)
 
 Stress test results
 
@@ -113,7 +109,7 @@ checks.......................: 100.00%
 - **Finding:** System is resilient to sudden traffic surges
 
 **Screenshot Required:**
-![png/image-2.png](png/image-2.png)
+![png/image-2.png](../png/image-2.png)
 
 Spike test output
 
@@ -142,7 +138,7 @@ checks.......................: 100.00%
 - **Finding:** System is stable for extended periods
 
 **Screenshot Required:**
-![png/image-3.png](png/image-3.png)
+![png/image-3.png](../png/image-3.png)
 
 Soak test results
 
@@ -186,10 +182,10 @@ http_req_duration............: p(95)=1.23ms
 **Performance Gain: 92.3% improvement** (from 15.91ms to 1.23ms)
 
 **Screenshots:**
-![png/image.png](png/image.png)
+![png/image.png](../png/image.png)
 *Before: P95 = 15.91ms*
 
-![png/image-4.png](png/image-4.png)
+![png/image-4.png](../png/image-4.png)
 *After: P95 = 1.23ms with database indexes*
 
 ---
@@ -252,7 +248,7 @@ http_req_duration............: p(95)=1.23ms
 **Results:** 9/9 tests passing
 
 **Screenshot Required:**
-![ `screenshots/cypress-authentication-tests.png`](assets/image000.png) 
+![ `screenshots/cypress-authentication-tests.png`](../assets/image000.png) 
 
 - Cypress runner showing all authentication tests passing
 
@@ -297,7 +293,7 @@ http_req_duration............: p(95)=1.23ms
 - Proper selector handling for Edit/Delete buttons
 
 **Screenshot Required:**
-![alt text](assets/image-100.png) 
+![alt text](../assets/image-100.png) 
 - Article tests passing
 
 ---
@@ -335,7 +331,7 @@ http_req_duration............: p(95)=1.23ms
 - Handled chronological ordering (oldest first)
 
 **Screenshot Required:**
-![alt text](assets/image-200.png) 
+![alt text](../assets/image-200.png) 
 
 - Comment tests passing
 
@@ -382,7 +378,7 @@ http_req_duration............: p(95)=1.23ms
 - Corrected settings redirect behavior (goes to home, not profile)
 
 **Screenshot Required:**
-![alt text](assets/image-300.png) 
+![alt text](../assets/image-300.png) 
 
 - Profile and feed tests passing
 
@@ -419,7 +415,7 @@ http_req_duration............: p(95)=1.23ms
 - Adjusted logout test to verify navbar changes
 
 **Screenshot Required:**
-![alt text](assets/image-400.png) 
+![alt text](../assets/image-400.png) 
 
 - Workflow tests passing
 
@@ -439,7 +435,7 @@ http_req_duration............: p(95)=1.23ms
 | **TOTAL** | **71** | **100% Pass Rate** |
 
 **Screenshot Required:**
-![alt text](png/image5.png)
+![alt text](../png/image5.png)
 
 - Cypress runner showing all test suites
 
@@ -469,7 +465,7 @@ npx cypress run --browser edge
 
 **Screenshot Required:**
 
-![alt text](png/image6.png)
+![alt text](../png/image6.png)
 
 - Tests running in Chrome (showing test execution or Cypress runner)
 
@@ -525,9 +521,9 @@ npx cypress run --browser edge
 ### For Performance
 
 1. **Database Optimization**
-   - ✅ Implemented: Indexes on frequently queried columns
-   - 🔄 Consider: Query optimization for complex joins
-   - 🔄 Consider: Caching layer for frequently accessed data
+   - Implemented: Indexes on frequently queried columns
+   - Consider: Query optimization for complex joins
+   - Consider: Caching layer for frequently accessed data
 
 2. **Monitoring**
    - Implement APM (Application Performance Monitoring)

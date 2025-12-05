@@ -82,7 +82,7 @@ This report documents comprehensive testing implementation for both backend (Go/
 
 **Test Results:**
 
-![alt text](assets/image-20.png)
+![alt text](../assets/image-20.png)
 
 **All 25 tests PASS**
 
@@ -191,7 +191,7 @@ The 4.7% coverage reflects our testing strategy - focused on unit testing models
 
 ### 1. Integration Tests - All Passing 
 
-![assets/image-50.png](assets/image-50.png)
+![assets/image-50.png](../assets/image-50.png)
 
 **Test Results:**
 ```
@@ -239,7 +239,7 @@ PASS
 ### 2. Articles Unit Tests - All 25 Passing 
 
 
-![alt text](assets/image-60.png)
+![alt text](../assets/image-60.png)
 
 **Test Results:**
 ```
@@ -301,7 +301,7 @@ ok      realworld-backend/articles      (cached)
 
 ### 3. Coverage Summary ✅
 
-![assets/image-70.png](assets/image-70.png)
+![assets/image-70.png](../assets/image-70.png)
 
 **Coverage Results:**
 
@@ -563,14 +563,14 @@ ok      realworld-backend/articles      (cached)
 
 ### 1. All Component & Reducer Tests Passing 
 
-![assets/image-2.png](assets/image-2.png)
+![assets/image-2.png](../assets/image-2.png)
 
 
 ---
 
 ### 2. Complete Test Suite Summary
 
-![assets/image-3.png](assets/image-3.png)
+![assets/image-3.png](../assets/image-3.png)
 
 **100% Pass Rate!**
 
