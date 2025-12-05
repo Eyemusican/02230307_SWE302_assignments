@@ -15,7 +15,7 @@ This repository contains comprehensive implementations of three major assignment
 
 ##  Assignment 1: Comprehensive Testing Implementation
   
-**Report:** [`ASSIGNMENT_1_COMPREHENSIVE_REPORT.md`](ASSIGNMENT_1_COMPREHENSIVE_REPORT.md)
+**Report:** [`ASSIGNMENT_1_COMPREHENSIVE_REPORT.md`](Assignment_01/ASSIGNMENT_1_COMPREHENSIVE_REPORT.md)
 
 ### Achievements
 
@@ -46,7 +46,7 @@ This repository contains comprehensive implementations of three major assignment
 
 ## Assignment 2: Security Testing (SAST & DAST)
  
-**Report:** [`ASSIGNMENT_2_COMPLETE_REPORT.md`](ASSIGNMENT_2_COMPLETE_REPORT.md)
+**Report:** [`ASSIGNMENT_2_COMPLETE_REPORT.md`](Assignment_02/ASSIGNMENT_2_COMPLETE_REPORT.md)
 
 ### Security Assessment Summary
 
@@ -85,7 +85,7 @@ This repository contains comprehensive implementations of three major assignment
 
 ## Assignment 3: Performance Testing & E2E Testing
  
-**Report:** [`ASSIGNMENT_3_REPORT.md`](ASSIGNMENT_3_REPORT.md)
+**Report:** [`ASSIGNMENT_3_REPORT.md`](Assignment_03/ASSIGNMENT_3_REPORT.md)
 
 ### Performance Testing (k6)
 
