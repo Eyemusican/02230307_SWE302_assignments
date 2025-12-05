@@ -171,12 +171,6 @@ import "github.com/golang-jwt/jwt/v5"
 token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 ```
 
-**📸 Screenshot 4: JWT Vulnerability Fix**
-> **What to capture:** `go.mod` file showing updated dependency
-> **Location:** Open `go.mod` in VS Code
-> **Shows:** `github.com/golang-jwt/jwt/v5 v5.3.0` line
-
----
 
 #### Dependency Analysis
 

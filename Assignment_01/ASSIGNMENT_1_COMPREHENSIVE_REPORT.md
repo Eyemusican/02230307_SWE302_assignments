@@ -107,7 +107,7 @@ This report documents comprehensive testing implementation for both backend (Go/
 ok      realworld-backend/common        0.640s
 coverage: 74.4% of statements
 ```
-![assets/image-40.png](assets/image-40.png)
+![assets/image-40.png](../assets/image-40.png)
 
 **Exceeds 70% requirement!**
 
