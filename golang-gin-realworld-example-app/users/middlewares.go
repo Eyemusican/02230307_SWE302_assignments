@@ -1,12 +1,13 @@
 package users
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/dgrijalva/jwt-go/request"
-	"realworld-backend/common"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"realworld-backend/common"
 	"strings"
+
+	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
+	"github.com/golang-jwt/jwt/v5/request"
 )
 
 // Strips 'TOKEN ' prefix from token string
@@ -44,22 +45,23 @@ func UpdateContextUserModel(c *gin.Context, my_user_id uint) {
 }
 
 // You can custom middlewares yourself as the doc: https://github.com/gin-gonic/gin#custom-middleware
-//  r.Use(AuthMiddleware(true))
+//
+//	r.Use(AuthMiddleware(true))
 func AuthMiddleware(auto401 bool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		UpdateContextUserModel(c, 0)
 		token, err := request.ParseFromRequest(c.Request, MyAuth2Extractor, func(token *jwt.Token) (interface{}, error) {
 			b := ([]byte(common.NBSecretPassword))
 			return b, nil
-		})
+		}, request.WithClaims(&jwt.MapClaims{}))
 		if err != nil {
 			if auto401 {
 				c.AbortWithError(http.StatusUnauthorized, err)
 			}
 			return
 		}
-		if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-			my_user_id := uint(claims["id"].(float64))
+		if claims, ok := token.Claims.(*jwt.MapClaims); ok && token.Valid {
+			my_user_id := uint((*claims)["id"].(float64))
 			//fmt.Println(my_user_id,claims["id"])
 			UpdateContextUserModel(c, my_user_id)
 		}

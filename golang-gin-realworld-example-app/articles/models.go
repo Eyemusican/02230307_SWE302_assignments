@@ -2,20 +2,21 @@ package articles
 
 import (
 	_ "fmt"
-	"github.com/jinzhu/gorm"
 	"realworld-backend/common"
 	"realworld-backend/users"
 	"strconv"
+
+	"github.com/jinzhu/gorm"
 )
 
 type ArticleModel struct {
 	gorm.Model
 	Slug        string `gorm:"unique_index"`
-	Title       string
+	Title       string `gorm:"index"` // Added index for faster title searches
 	Description string `gorm:"size:2048"`
 	Body        string `gorm:"size:2048"`
 	Author      ArticleUserModel
-	AuthorID    uint
+	AuthorID    uint           `gorm:"index"` // Added index for faster author lookups
 	Tags        []TagModel     `gorm:"many2many:article_tags;"`
 	Comments    []CommentModel `gorm:"ForeignKey:ArticleID"`
 }
@@ -45,7 +46,7 @@ type TagModel struct {
 type CommentModel struct {
 	gorm.Model
 	Article   ArticleModel
-	ArticleID uint
+	ArticleID uint `gorm:"index"` // Added index for faster comment queries by article
 	Author    ArticleUserModel
 	AuthorID  uint
 	Body      string `gorm:"size:2048"`
@@ -112,6 +113,11 @@ func FindOneArticle(condition interface{}) (ArticleModel, error) {
 	db := common.GetDB()
 	var model ArticleModel
 	tx := db.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
 	tx.Where(condition).First(&model)
 	tx.Model(&model).Related(&model.Author, "Author")
 	tx.Model(&model.Author).Related(&model.Author.UserModel)

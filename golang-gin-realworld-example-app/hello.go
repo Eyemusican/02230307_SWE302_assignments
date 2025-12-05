@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 
-	"github.com/jinzhu/gorm"
 	"realworld-backend/articles"
 	"realworld-backend/common"
 	"realworld-backend/users"
+
+	"github.com/jinzhu/gorm"
 )
 
 func Migrate(db *gorm.DB) {
@@ -19,6 +21,13 @@ func Migrate(db *gorm.DB) {
 	db.AutoMigrate(&articles.FavoriteModel{})
 	db.AutoMigrate(&articles.ArticleUserModel{})
 	db.AutoMigrate(&articles.CommentModel{})
+
+	// Performance optimization: Add database indexes
+	db.Model(&articles.ArticleModel{}).AddIndex("idx_articles_author", "author_id")
+	db.Model(&articles.ArticleModel{}).AddIndex("idx_articles_created_at", "created_at")
+	db.Model(&articles.CommentModel{}).AddIndex("idx_comments_article", "article_id")
+
+	fmt.Println("✅ Database indexes added for performance optimization")
 }
 
 func main() {
@@ -36,6 +45,27 @@ func main() {
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		AllowCredentials: true,
 	}))
+
+	// Security Headers Middleware
+	r.Use(func(c *gin.Context) {
+		// Prevent clickjacking attacks
+		c.Header("X-Frame-Options", "DENY")
+
+		// Prevent MIME-sniffing
+		c.Header("X-Content-Type-Options", "nosniff")
+
+		// Enable XSS protection
+		c.Header("X-XSS-Protection", "1; mode=block")
+
+		// Content Security Policy
+		c.Header("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' http://localhost:8080 http://localhost:4100")
+
+		// Remove information disclosure headers
+		c.Header("Server", "")
+		c.Header("X-Powered-By", "")
+
+		c.Next()
+	})
 
 	v1 := r.Group("/api")
 	users.UsersRegister(v1.Group("/users"))
@@ -59,15 +89,33 @@ func main() {
 
 	// test 1 to 1
 	tx1 := db.Begin()
+
+	// Hash the password for seed user
+	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte("testpassword123"), bcrypt.DefaultCost)
+
 	userA := users.UserModel{
-		Username: "AAAAAAAAAAAAAAAA",
-		Email:    "aaaa@g.cn",
-		Bio:      "hehddeda",
-		Image:    nil,
+		Username:     "AAAAAAAAAAAAAAAA",
+		Email:        "aaaa@g.cn",
+		Bio:          "seed user for testing",
+		Image:        nil,
+		PasswordHash: string(hashedPassword),
 	}
-	tx1.Save(&userA)
-	tx1.Commit()
-	fmt.Println(userA)
+
+	// Check if user already exists before saving
+	var existingUser users.UserModel
+	if err := db.Where("email = ?", "aaaa@g.cn").First(&existingUser).Error; err != nil {
+		// User doesn't exist, create it
+		if result := tx1.Save(&userA); result.Error != nil {
+			tx1.Rollback()
+			fmt.Println("Seed user creation failed (already exists):", result.Error)
+		} else {
+			tx1.Commit()
+			fmt.Println(userA)
+		}
+	} else {
+		tx1.Rollback()
+		fmt.Println("Seed user already exists, skipping")
+	}
 
 	//db.Save(&ArticleUserModel{
 	//    UserModelID:userA.ID,
@@ -78,5 +126,5 @@ func main() {
 	//}).First(&userAA)
 	//fmt.Println(userAA)
 
-	r.Run() // listen and serve on 0.0.0.0:8080
+	r.Run("0.0.0.0:8080") // listen on all interfaces (IPv4 and IPv6)
 }

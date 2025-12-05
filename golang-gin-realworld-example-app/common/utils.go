@@ -4,13 +4,14 @@ package common
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	"github.com/go-playground/validator/v10"
+	"github.com/golang-jwt/jwt/v5"
 
-	"github.com/gin-gonic/gin/binding"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
 )
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
@@ -24,25 +25,37 @@ func RandString(n int) string {
 	return string(b)
 }
 
-// Keep this two config private, it should not expose to open source
-const NBSecretPassword = "A String Very Very Very Strong!!@##$!@#$"
-const NBRandomPassword = "A String Very Very Very Niubilty!!@##$!@#4"
+// JWT secrets loaded from environment variables for security
+// Set these environment variables before running the application:
+// export JWT_SECRET="your-secure-random-secret-here"
+// export JWT_RANDOM_SEED="your-secure-random-seed-here"
+var NBSecretPassword = getEnvOrDefault("JWT_SECRET", "CHANGE-ME-IN-PRODUCTION")
+var NBRandomPassword = getEnvOrDefault("JWT_RANDOM_SEED", "CHANGE-ME-IN-PRODUCTION")
+
+// Helper function to get environment variable with default fallback
+func getEnvOrDefault(key, defaultValue string) string {
+	if value := os.Getenv(key); value != "" {
+		return value
+	}
+	fmt.Printf("WARNING: %s not set, using default value. Set environment variable for production!\n", key)
+	return defaultValue
+}
 
 // A Util function to generate jwt_token which can be used in the request header
 func GenToken(id uint) string {
-	jwt_token := jwt.New(jwt.GetSigningMethod("HS256"))
-	// Set some claims
-	jwt_token.Claims = jwt.MapClaims{
+	// Create token with claims
+	jwt_token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":  id,
-		"exp": time.Now().Add(time.Hour * 24).Unix(),
-	}
+		"exp": jwt.NewNumericDate(time.Now().Add(time.Hour * 24)),
+	})
 	// Sign and get the complete encoded token as a string
 	token, _ := jwt_token.SignedString([]byte(NBSecretPassword))
 	return token
 }
 
 // My own Error type that will help return my customized Error info
-//  {"database": {"hello":"no such table", error: "not_exists"}}
+//
+//	{"database": {"hello":"no such table", error: "not_exists"}}
 type CommonError struct {
 	Errors map[string]interface{} `json:"errors"`
 }

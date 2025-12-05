@@ -7,16 +7,17 @@
     "@testing-library/react": "^11.2.7",
     "cheerio": "^1.0.0-rc.10",
     "cross-env": "^5.1.4",
+    "cypress": "^15.7.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.8",
     "enzyme-to-json": "^3.6.2",
     "html-element-map": "^1.2.0",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^5.0.1",
     "redux-mock-store": "^1.5.5"
   },
   "dependencies": {
     "history": "^4.6.3",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "prop-types": "^15.5.10",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
@@ -38,5 +39,17 @@
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
